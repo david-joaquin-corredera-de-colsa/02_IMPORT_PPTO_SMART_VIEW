@@ -11,8 +11,8 @@ Public Function SmartView_CreateConnection() As Boolean
     
     ' Variables para control de errores
     Dim strFuncion As String
-    ' Inicialización
-    strFuncion = "SmartView_CreateConnection"
+    Dim ws As Worksheet
+    Set ws = ThisWorkbook.Worksheets(CONST_HOJA_USERNAME)
     
 
     ' Validar/Crear hoja UserName
@@ -28,8 +28,8 @@ Public Function SmartView_CreateConnection() As Boolean
         Dim ws As Worksheet
         Set ws = ThisWorkbook.Worksheets(CONST_HOJA_USERNAME)
         If Not fun809_OcultarHojaDelimitadores(ws) Then
-            Debug.Print "ADVERTENCIA: Error al ocultar la hoja " & gstrHoja_UserName & " - Función: F000_Comprobaciones_Iniciales - " & Now()
-            ' Nota: No es un error crítico, el proceso puede continuar
+            Debug.Print "ADVERTENCIA: Error al ocultar la hoja " & gstrHoja_UserName & " - FunciÃ³n: F000_Comprobaciones_Iniciales - " & Now()
+            ' Nota: No es un error crÃ­tico, el proceso puede continuar
         End If
     End If
     'Tomamos el vUsername de la celda Cells(2,2) de la hoja Username
@@ -53,7 +53,7 @@ Public Function SmartView_CreateConnection() As Boolean
     ws.Cells(2, 2).Value = vUsername
     ThisWorkbook.Save
 
-    'Declaracion de Variables para recoger el código de error retornado por SmartView
+    'Declaracion de Variables para recoger el cÃ³digo de error retornado por SmartView
     Dim vExisteConexion_Return As Boolean
     Dim vEliminarConexion_Return As Integer
     Dim vCrearConexion_Return As Integer
@@ -92,12 +92,12 @@ Public Function SmartView_CreateConnection() As Boolean
     
     'Verificar si la conexion se ha eliminado
       If vEliminarConexion_Return = 0 And vExisteConexion_Return Then
-         If CONST_MOSTRAR_MENSAJES_SMARTVIEW_CREAR_CONEXION Then MsgBox ("Se eliminó la conexion " & CONST_FRIENDLY_NAME & " para volver a crearla con valores actualizados")
+         If CONST_MOSTRAR_MENSAJES_SMARTVIEW_CREAR_CONEXION Then MsgBox ("Se eliminÃ³ la conexion " & CONST_FRIENDLY_NAME & " para volver a crearla con valores actualizados")
       ElseIf vExisteConexion_Return Then
-        If CONST_MOSTRAR_MENSAJES_SMARTVIEW_CREAR_CONEXION Then MsgBox "Hubo un error al intentar eliminar la conexión " & CONST_FRIENDLY_NAME & _
+        If CONST_MOSTRAR_MENSAJES_SMARTVIEW_CREAR_CONEXION Then MsgBox "Hubo un error al intentar eliminar la conexiÃ³n " & CONST_FRIENDLY_NAME & _
             " para volver a crearla con valores actualizados." & vbCrLf & "Error Number = " & vEliminarConexion_Return
       Else
-        If CONST_MOSTRAR_MENSAJES_SMARTVIEW_CREAR_CONEXION Then MsgBox "No existia la conexión " & CONST_FRIENDLY_NAME & ". " & vbCrLf & "Asi que no hubo que eliminarla." & vbCrLf & _
+        If CONST_MOSTRAR_MENSAJES_SMARTVIEW_CREAR_CONEXION Then MsgBox "No existia la conexiÃ³n " & CONST_FRIENDLY_NAME & ". " & vbCrLf & "Asi que no hubo que eliminarla." & vbCrLf & _
             "Vamos a crearla con valores actualizados." & vbCrLf & "Error Number = " & vEliminarConexion_Return
       End If
     
