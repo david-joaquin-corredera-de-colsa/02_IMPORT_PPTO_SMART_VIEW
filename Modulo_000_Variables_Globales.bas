@@ -11,7 +11,7 @@ Option Explicit
 '******************************************************************************
 
 ' Constante para version de la Macro
-Public Const CONST_MACRO_VERSION As String = "Macro - Version 20250615 - 23:59:01"
+Public Const CONST_MACRO_VERSION As String = "Macro - Version 20250616 - 10:06:01"
 
 ' Constante para Scenario Admitido
 Public Const CONST_ESCENARIO_ADMITIDO As String = "BUDGET_OS"
