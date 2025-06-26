@@ -11,7 +11,7 @@ Option Explicit
 '******************************************************************************
 
 ' Constante para version de la Macro
-Public Const CONST_MACRO_VERSION As String = "Macro - Version 20250616 - 10:06:01"
+Public Const CONST_MACRO_VERSION As String = "Macro - Version 20250617 - 20:10:05"
 
 ' Constante para Scenario Admitido
 Public Const CONST_ESCENARIO_ADMITIDO As String = "BUDGET_OS"
@@ -133,7 +133,7 @@ Public Const CONST_LOG_HEADER_FECHA_HORA As String = "Fecha/Hora"
 Public Const CONST_LOG_HEADER_USUARIO As String = "Usuario"
 Public Const CONST_LOG_HEADER_TIPO As String = "Tipo"
 Public Const CONST_LOG_HEADER_FICHERO As String = "Fichero"
-Public Const CONST_LOG_HEADER_HOJA As String = "Hoja"
+Public Const CONST_LOG_HEADER_HOJA As String = "Hoja/Funcion"
 Public Const CONST_LOG_HEADER_MENSAJE As String = "Mensaje"
 
 ' Variable para hoja de envío anterior
@@ -245,7 +245,24 @@ Public Const CONST_DISPLAY_MEMBER_NAME_SETTING As Integer = 16
     Public Const CONST_DISPLAY_NAME_ONLY As Integer = 0
     Public Const CONST_DISPLAY_AND_DESCRIPTION As Integer = 1
     Public Const CONST_DISPLAY_DESCRIPTION_ONLY As Integer = 2
-    
+Public Const CONST_SCALE_SETTING As Integer = HSV_SCALE 'Donde HSV_SCALE=38
+Public Const CONST_DECIMALPLACES_SETTING As Integer = HSV_DECIMALPLACES 'Donde HSV_SCALE=37
+Public Const CONST_LOG_MESSAGE_LEVEL As Integer = 104 'Donde HSV_LOGMESSAGE_DISPLAY = 104
+    Public Const CONST_LOG_MESSAGE_INFORMATION As Integer = 0
+    Public Const CONST_LOG_MESSAGE_WARNINGS As Integer = 1
+    Public Const CONST_LOG_MESSAGE_ERRORS As Integer = 2
+    Public Const CONST_LOG_MESSAGE_NONE As Integer = 3
+    Public Const CONST_LOG_MESSAGE_EXTENDED_INFO As Integer = 4
+Public Const CONST_CLEAR_LOG_ON_NEXT_LAUNCH As Integer = 106 'Donde HSV_CLEAR_LOG_ON_NEXTLAUNCH = 106
+Public Const CONST_LOG_FILE_PATH_NAME As Integer = 113 'Donde HSV_ROUTE_LOGMESSAGE_FILE_LOCATION = 113
+
+Public Const CONST_SUB_RUTA_STANDARD_LOG As String = "\Oracle\SmartView\"
+Public Const CONST_NOMBRE_STANDARD_LOG As String = "SmartViewLogs"
+Public Const CONST_EXTENSION_STANDARD_LOG As String = ".log"
+
+Public vstrRutaAppData As String
+
+
 ' Variables para las credenciales de SmartView
 Public vUsername As String
 Public vPassword As String
