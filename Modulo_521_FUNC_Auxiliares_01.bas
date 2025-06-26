@@ -319,7 +319,8 @@ Public Function fun802_SeleccionarArchivo(ByVal strPrompt As String) As String
     '--------------------------------------------------------------------------
     ' 1. Intentar obtener carpetas de respaldo en orden de prioridad
     '--------------------------------------------------------------------------
-    Do While intIntentoActual <= 4 And Not blnCarpetaValida
+    'Do While intIntentoActual <= 4 And Not blnCarpetaValida
+    Do While intIntentoActual <= 5 And Not blnCarpetaValida
         lngLineaError = 40 + intIntentoActual
         
         Select Case intIntentoActual
@@ -327,13 +328,20 @@ Public Function fun802_SeleccionarArchivo(ByVal strPrompt As String) As String
                 strCarpetaActual = fun803_ObtenerCarpetaExcelActual()
                 
             Case 2: ' Variable de entorno %TEMP%
-                strCarpetaActual = fun804_ObtenerCarpetaTemp()
+                'strCarpetaActual = fun804_ObtenerCarpetaTemp()
+                strCarpetaActual = fun804_ObtenerCarpetaEnvironmentVariable("TEMP")
                 
             Case 3: ' Variable de entorno %TMP%
-                strCarpetaActual = fun805_ObtenerCarpetaTmp()
+                'strCarpetaActual = fun805_ObtenerCarpetaTmp()
+                strCarpetaActual = fun804_ObtenerCarpetaEnvironmentVariable("TMP")
                 
             Case 4: ' Variable de entorno %USERPROFILE%
-                strCarpetaActual = fun806_ObtenerCarpetaUserProfile()
+                'strCarpetaActual = fun806_ObtenerCarpetaUserProfile()
+                strCarpetaActual = fun804_ObtenerCarpetaEnvironmentVariable("USERPROFILE")
+                
+            Case 5: ' Variable de entorno APPDATA
+                'strCarpetaActual = fun806_ObtenerCarpetaUserProfile()
+                strCarpetaActual = fun804_ObtenerCarpetaEnvironmentVariable("APPDATA")
         End Select
         
         ' Verificar si la carpeta es válida y accesible

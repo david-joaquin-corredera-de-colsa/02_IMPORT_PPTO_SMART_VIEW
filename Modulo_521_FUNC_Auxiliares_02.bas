@@ -350,6 +350,31 @@ Public Function fun803_ObtenerCarpetaExcelActual() As String
 ErrorHandler:
     fun803_ObtenerCarpetaExcelActual = ""
 End Function
+Public Function fun804_ObtenerCarpetaEnvironmentVariable(vstrEnvironmentVariable As String) As String
+
+    '******************************************************************************
+    ' FUNCIONES AUXILIARES PARA OBTENCIÓN DE CARPETAS DE RESPALDO
+    ' FECHA CREACIÓN: 2025-06-01
+    ' AUTOR: david-joaquin-corredera-de-colsa
+    ' COMPATIBILIDAD: Excel 97, 2003, 365
+    '******************************************************************************
+    
+    '--------------------------------------------------------------------------
+    ' Obtiene la carpeta de la variable de entorno %TEMP%
+    '--------------------------------------------------------------------------
+    On Error GoTo ErrorHandler
+    
+    Dim strCarpeta As String
+    
+    ' Obtener variable de entorno TEMP (compatible con Excel 97+)
+    strCarpeta = Environ(UCase(vstrEnvironmentVariable))
+    
+    fun804_ObtenerCarpetaEnvironmentVariable = strCarpeta
+    Exit Function
+    
+ErrorHandler:
+    fun804_ObtenerCarpetaEnvironmentVariable = ""
+End Function
 
 Public Function fun804_ObtenerCarpetaTemp() As String
 
